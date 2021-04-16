@@ -1,0 +1,61 @@
+<!-- https://www.theodinproject.com/courses/foundations/lessons/fundamentals-part-5 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Odin's Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="display">
+            <p id="display"></p>
+        </div>
+        <div class="buttons">
+            
+            <div class="button top" id="clear" 
+                title="Clear (or press Clear)">
+                <span class="A">A</span>
+                <span class="C">C</span>
+            </div>
+            <div class="button top" id="backspace" 
+                title="Backspace (or press Backspace)">⌫</div>
+            <div class="button top" id="plusMinus" 
+                title="Negate the displayed value">⁺∕₋</div>
+            <div class="button oper" id="divide" 
+                title="Divide (or press /)">÷</div>
+            
+            <div class="button num" id="7">7</div>
+            <div class="button num" id="8">8</div>
+            <div class="button num" id="9">9</div>
+            <div class="button oper" id="multiply" 
+                title="Multiply (or press *)">×</div>
+            
+            <div class="button num" id="4">4</div>
+            <div class="button num" id="5">5</div>
+            <div class="button num" id="6">6</div>
+            <div class="button oper" id="subtract" 
+                title="Subtract (or press -)">−</div>
+            
+            <div class="button num" id="1">1</div>
+            <div class="button num" id="2">2</div>
+            <div class="button num" id="3">3</div>
+            <div class="button oper" id="add" 
+                title="Add (or press +)">+</div>
+            
+            <div class="button num lwrL" id="0">0</div>
+            <div class="button num" id=".">.</div>
+            <div class="button oper lwrR" id="equal" 
+                title="Equal (or press Return)">=</div>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

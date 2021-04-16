@@ -1,0 +1,78 @@
+html {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    vertical-align: middle;
+}
+
+.card {
+    width: 300px;
+    margin: 30px;
+    border: .5px solid rgb(39, 39, 39);
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(39, 39, 39);
+}
+
+.display {
+    background-color: rgb(39, 39, 39);
+    height: 90px;
+    border-radius: 10px 10px 0px 0px;
+    text-align: right;
+    bottom: 0px;
+    font-size: 45pt;
+    font-weight: 200;
+    padding: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+    font-size: 30pt;
+    font-weight: 500;
+    user-select: none;    
+    border-radius: 0px 0px 10px 10px;
+    font-weight: 300;
+}
+
+.button {
+    border: .5px solid rgb(39, 39, 39);
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.button:active,
+.button.active {
+    background-color: rgb(99, 99, 99);
+}
+
+.top {
+    background-color: rgb(51, 51, 51);
+}
+
+.num {
+    background-color: rgb(77, 77, 77);
+}
+
+.oper {
+    background-color: rgb(233, 140, 0);
+}
+
+.lwrL {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.lwrR {
+    border-radius: 0px 0px 10px 0px;
+}
+
+#clear {
+    letter-spacing: -0.12em;
+}
+
+.A {
+    display: none;
+}
