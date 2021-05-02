@@ -44,7 +44,7 @@ function updateDisplay() {
     let trunc = b.length > 25 ? Number(b).toExponential(10) : b;
     console.log(trunc);
     if (trunc == 'NaN' || trunc == 'Infinity') {
-        trunc = 'Error - don\'t divide by zero';
+        trunc = 'Please don\'t divide by zero';
         b = '0';
     }
     // Resize display text for long numbers
