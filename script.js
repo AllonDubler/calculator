@@ -94,6 +94,7 @@ function calc() {
         }
     }
     clearBtn.textContent = 'C';
+    clearBtn.title = 'Clear Screen (or press Clear)';
 }
 
 //assign button-click event listeners to number buttons
@@ -121,6 +122,7 @@ function inputNum(val) {
 
     updateDisplay();
     clearBtn.textContent = 'C';
+    clearBtn.title = 'Clear Screen (or press Clear)';
 }
 
 
@@ -129,6 +131,7 @@ function clear() {
         b = '0';
         updateDisplay();
         clearBtn.textContent = 'AC';
+        clearBtn.title = 'Clear All (or press Clear)';
     }
     else {
         a = '';
