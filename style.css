@@ -3,6 +3,7 @@ html {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .card {
@@ -23,6 +24,12 @@ html {
     font-size: 45pt;
     font-weight: 200;
     padding: 10px;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+    line-height: 0px;
 }
 
 .buttons {
@@ -70,9 +77,11 @@ html {
 }
 
 #clear {
-    letter-spacing: -0.12em;
+    letter-spacing: 0em;
 }
 
-.A {
-    display: none;
+#hidden {
+    visibility: hidden;
+    width: min-content;
+    white-space: nowrap;
 }

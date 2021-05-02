@@ -8,11 +8,10 @@ let op = undefined;
 let newNum = false;
 let rptCalc = false;
 
-let add = function(a, b) {return Number(a) + Number(b);}
-let subtract = function(a, b) {return Number(a) - Number(b);}
-let multiply = function(a, b) {return Number(a) * Number(b);}
-let divide = function(a, b) {return Number(a) / Number(b);}
-let power = function(a, b) {return Number(a) ** Number(b);}
+let add = function(a, b) {return String(Number(a) + Number(b));}
+let subtract = function(a, b) {return String(Number(a) - Number(b));}
+let multiply = function(a, b) {return String(Number(a) * Number(b));}
+let divide = function(a, b) {return String(Number(a) / Number(b));}
 
 const clearBtn = document.getElementById('clear');
 const backspaceBtn = document.getElementById('backspace');
@@ -41,14 +40,35 @@ function updateOp(newOp) {
     rptCalc = false;
 };
 
+function updateDisplay() {
+    let trunc = b.length > 25 ? Number(b).toExponential(10) : b;
+    console.log(trunc);
+    if (trunc == 'NaN' || trunc == 'Infinity') {
+        trunc = 'Error - don\'t divide by zero';
+        b = '0';
+    }
+    // Resize display text for long numbers
+    let hidden = document.getElementById('hidden');
+    let fontSize = 45
+    hidden.style.fontSize = '45pt';
+    display.style.fontSize = '45pt';
+    hidden.textContent = trunc;
+    while (hidden.offsetWidth > display.offsetWidth) {
+        fontSize = --fontSize;
+        hidden.style.fontSize = `${fontSize}pt`;
+        display.style.fontSize = `${fontSize}pt`;
+    }
+    display.textContent = trunc
+};
+
 function calc() {
     if (op) {
         // When user hits 'equal' without entering any numbers or a new 
         // operation, repeat the last calculation – calc(a, b) – using 
-        // the result as (a) andkeeping (b) the same 
+        // the result as (a) and keeping (b) the same 
         if(rptCalc) {
             b = op(b, c); 
-            display.textContent = b;
+            updateDisplay();
             a = '';
             newNum = true;
         }
@@ -58,7 +78,7 @@ function calc() {
             a = b;
             c = b;
             b = op(a, b); 
-            display.textContent = b;
+            updateDisplay();
             a = '';
             newNum = true;
             rptCalc = true;
@@ -67,12 +87,13 @@ function calc() {
         else {
             c = b;
             b = op(a, b); 
-            display.textContent = b;
+            updateDisplay();
             a = '';
             newNum = true;
             rptCalc = true;
         }
     }
+    clearBtn.textContent = 'C';
 }
 
 //assign button-click event listeners to number buttons
@@ -98,19 +119,30 @@ function inputNum(val) {
         else if (val != '.') {b += val}
     }
 
-    display.textContent = b;
+    updateDisplay();
+    clearBtn.textContent = 'C';
 }
 
 
 function clear() {
-    b = '0';
-    display.textContent = b;
+    if (clearBtn.textContent == 'C') {
+        b = '0';
+        updateDisplay();
+        clearBtn.textContent = 'AC';
+    }
+    else {
+        a = '';
+        b = '0';      
+        c = '';
+        updateDisplay();
+    }
+
 }
 
 function backspace() {
     b.length > 1 ? b = b.slice(0, b.length - 1) : b = '0';
     b = b === '-' ? '0' : b;
-    display.textContent = b;
+    updateDisplay();
 }
 
 function plusMinus() {
@@ -118,7 +150,7 @@ function plusMinus() {
         b = b.slice(1)
         : b = b === '0' ? 
             '0' : '-' + b;
-    display.textContent = b;
+    updateDisplay();
 }
 
 window.addEventListener("keydown", function (event) {
@@ -128,7 +160,7 @@ window.addEventListener("keydown", function (event) {
     function clickBtn (id) {
         document.getElementById(id).classList.add("active");
             window.setTimeout(()=>
-            {document.getElementById(id).classList.remove("active")}, 30);
+            {document.getElementById(id).classList.remove("active")}, 90);
     }
     switch (event.key) {
         case "Backspace":
